@@ -1,9 +1,22 @@
 import React from "react";
 
-const Menu = () => {
+const Menu = ({ items }) => {
   return (
-    <div>
-      <h2>Menu Component</h2>
+    <div className="section-center">
+      {items.map((menuItems) => {
+        const { id, title, price, img, desc } = menuItems;
+        return (
+          <article key={id} className="menu-item">
+            <img src={img} alt={title} className="photo" />
+            <div className="item-info">
+              <header>
+                <h2>{title}</h2>
+                <h2 className="price">{price}</h2>
+              </header>
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 };
